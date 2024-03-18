@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700&family=Outfit:wght@100;400;700&display=swap");
+* {
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Outfit";
+  color: white;
+}
+p,
+li,
+span,
+label {
+  color: white;
+  font-family: "inter";
+}
+body {
+  min-width: 1024px;
+  background-image: url(../Immagini/bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 4em 6em;
+}
+
+#epicode_logo {
+  width: 170px;
+}
+
+#epicode_logo img {
+  width: 100%;
+}
