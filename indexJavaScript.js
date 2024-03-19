@@ -1,25 +1,26 @@
 // PAGINA 1
 
 // chiamati input e bottone , dove il bottone parte disabilitato e viene abilitato al check dell'input
-const checkbox = document.querySelector("#checkbox");
-const startButton = document.querySelector("#btn");
-startButton.disabled = true;
-const check = function () {
-  if (checkbox.checked) {
-    startButton.disabled = false;
-  } else {
-    startButton.disabled = true;
-  }
-};
-checkbox.addEventListener("change", check);
-// questo serve per far cambiare pagina
-startButton.addEventListener("click", () => {
-  window.location.assign("./indexPage2.html");
-});
+
+// const checkbox = document.querySelector("#checkbox")
+// const startButton = document.querySelector("#btn")
+// startButton.disabled = true
+// const check = function () {
+//   if (checkbox.checked) {
+//     startButton.disabled = false
+//   } else {
+//     startButton.disabled = true
+//   }
+// }
+// checkbox.addEventListener("change", check)
+// // questo serve per far cambiare pagina
+// startButton.addEventListener("click", () => {
+//   window.location.assign("./indexPage2.html")
+// })
 
 //PAGINA 2
 
-const questions = [
+const arrOfQuestions = [
   {
     category: "Science: Computers",
     type: "multiple",
@@ -113,18 +114,42 @@ const questions = [
     correct_answer: "Java",
     incorrect_answers: ["Python", "C", "Jakarta"],
   },
-];
+]
 
-const btn1 = document.createElement("button");
-const btn2 = document.createElement("button");
-const btn3 = document.createElement("button");
-const btn4 = document.createElement("button");
-const btnTrue = document.createElement("button");
-const btnFalse = document.createElement("button");
-const btnGo = document.createElement("button");
-const btnSubmit = document.createElement("button");
+const btn1 = document.createElement("button")
+const btn2 = document.createElement("button")
+const btn3 = document.createElement("button")
+const btn4 = document.createElement("button")
+const btnTrue = document.createElement("button")
+const btnFalse = document.createElement("button")
+const btnSubmit = document.createElement("button")
 
-const question = document.querySelector("#quests");
-const answer = document.querySelector("#");
+const questionsContainer = document.querySelector("#quests-container")
+const questsH2 = document.querySelector("#quests")
+// const answer = document.querySelector("#")
 
-for (let i = 0; i < questions.length; i++) {}
+let quest = []
+const questionAndAnswer = function () {
+  for (let i = 0; i < arrOfQuestions.length; i++) {
+    quest.push(arrOfQuestions[i].question)
+    //console.log(quest[i])
+  }
+  questsH2.innerHTML = quest[0]
+  questionsContainer.appendChild(questsH2)
+  const btnGo = document.createElement("button")
+  btnGo.innerText = "next"
+  const divBtnProx = document.querySelector("#prox-domanda")
+  divBtnProx.appendChild(btnGo)
+  btnGo.addEventListener("click", () => {
+    quest[1]
+    console.log(quest)
+  })
+}
+questionAndAnswer()
+// console.log(quest)
+// questionAndAnswer()
+// const singleQuestion = function () {
+//   for (let i = 0; i < quest.length; i++) {
+//   }
+// }
+// singleQuestion()
