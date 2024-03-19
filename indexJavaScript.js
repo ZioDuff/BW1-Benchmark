@@ -120,19 +120,34 @@ const btn3 = document.createElement("button")
 const btn4 = document.createElement("button")
 const btnTrue = document.createElement("button")
 const btnFalse = document.createElement("button")
-const btnGo = document.createElement("button")
 const btnSubmit = document.createElement("button")
 
 const questionsContainer = document.querySelector("#quests-container")
 const questsH2 = document.querySelector("#quests")
 // const answer = document.querySelector("#")
 
+let quest = []
 const questionAndAnswer = function () {
-  let quest = ""
   for (let i = 0; i < arrOfQuestions.length; i++) {
-    quest = arrOfQuestions[i].question
-    questsH2.innerHTML = quest
-    questionsContainer.appendChild(questsH2)
+    quest.push(arrOfQuestions[i].question)
+    //console.log(quest[i])
   }
+  questsH2.innerHTML = quest[0]
+  questionsContainer.appendChild(questsH2)
+  const btnGo = document.createElement("button")
+  btnGo.innerText = "next"
+  const divBtnProx = document.querySelector("#prox-domanda")
+  divBtnProx.appendChild(btnGo)
+  btnGo.addEventListener("click", () => {
+    quest[1]
+    console.log(quest)
+  })
 }
 questionAndAnswer()
+// console.log(quest)
+// questionAndAnswer()
+// const singleQuestion = function () {
+//   for (let i = 0; i < quest.length; i++) {
+//   }
+// }
+// singleQuestion()
