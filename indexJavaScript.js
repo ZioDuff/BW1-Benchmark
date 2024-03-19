@@ -114,42 +114,37 @@ const arrOfQuestions = [
     correct_answer: "Java",
     incorrect_answers: ["Python", "C", "Jakarta"],
   },
-]
+];
+let questH2 = document.querySelector("#quests");
+let index = -1;
 
-const btn1 = document.createElement("button")
-const btn2 = document.createElement("button")
-const btn3 = document.createElement("button")
-const btn4 = document.createElement("button")
-const btnTrue = document.createElement("button")
-const btnFalse = document.createElement("button")
-const btnSubmit = document.createElement("button")
+const btn = document.createElement("button");
+const contBtn = document.querySelector("#container-btn");
+contBtn.appendChild(btn);
 
-const questionsContainer = document.querySelector("#quests-container")
-const questsH2 = document.querySelector("#quests")
-// const answer = document.querySelector("#")
-
-let quest = []
-const questionAndAnswer = function () {
-  for (let i = 0; i < arrOfQuestions.length; i++) {
-    quest.push(arrOfQuestions[i].question)
-    //console.log(quest[i])
-  }
-  questsH2.innerHTML = quest[0]
-  questionsContainer.appendChild(questsH2)
-  const btnGo = document.createElement("button")
-  btnGo.innerText = "next"
-  const divBtnProx = document.querySelector("#prox-domanda")
-  divBtnProx.appendChild(btnGo)
-  btnGo.addEventListener("click", () => {
-    quest[1]
-    console.log(quest)
-  })
+function changeQuestion() {
+  index = index + 1;
+  const currentQuestion = arrOfQuestions[index];
+  questH2.innerHTML = currentQuestion.question;
+  console.log(index);
 }
-questionAndAnswer()
-// console.log(quest)
-// questionAndAnswer()
-// const singleQuestion = function () {
-//   for (let i = 0; i < quest.length; i++) {
-//   }
-// }
-// singleQuestion()
+
+changeQuestion();
+const p = document.createElement("p");
+
+let nQuestion = 1;
+let count = nQuestion + "/10";
+const countAtClick = function () {
+  nQuestion++;
+  count = nQuestion + "/10";
+  console.log(count);
+  p.innerText = count;
+};
+btn.addEventListener("click", countAtClick);
+
+btn.addEventListener("click", changeQuestion);
+window.onload = function () {
+  const div = document.querySelector("#prox-domanda");
+  div.appendChild(p);
+  p.innerText = count;
+};
