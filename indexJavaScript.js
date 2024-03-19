@@ -153,3 +153,21 @@ const structuringQuiz = function () {
 };
 
 structuringQuiz();
+
+const p = document.createElement("p");
+
+let nQuestion = 1;
+let count = nQuestion + "/10";
+const countAtClick = function () {
+  nQuestion++;
+  count = nQuestion + "/10";
+  console.log(count);
+  p.innerText = count;
+};
+nextButton.addEventListener("click", countAtClick);
+
+window.onload = function () {
+  const div = document.querySelector("#prox-domanda");
+  div.appendChild(p);
+  p.innerText = count;
+};
