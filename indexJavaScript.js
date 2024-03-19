@@ -115,36 +115,41 @@ const arrOfQuestions = [
     incorrect_answers: ["Python", "C", "Jakarta"],
   },
 ];
-let questH2 = document.querySelector("#quests");
-let index = -1;
 
-const btn = document.createElement("button");
-const contBtn = document.querySelector("#container-btn");
-contBtn.appendChild(btn);
+const questionsContainer = document.querySelector("#quests-container");
+const questsH2 = document.querySelector("#quests");
+const nextButton = document.querySelector("#next");
+let index = 0;
+let answerIndex = 0;
+let correctAnswer = [];
+let allAnswer = [];
 
-function changeQuestion() {
-  index = index + 1;
-  const currentQuestion = arrOfQuestions[index];
-  questH2.innerHTML = currentQuestion.question;
-  console.log(index);
-}
+//
 
-changeQuestion();
-const p = document.createElement("p");
+const structuringQuiz = function () {
+  if (index < arrOfQuestions.length) {
+    let itemNow = arrOfQuestions[index];
 
-let nQuestion = 1;
-let count = nQuestion + "/10";
-const countAtClick = function () {
-  nQuestion++;
-  count = nQuestion + "/10";
-  console.log(count);
-  p.innerText = count;
+    questsH2.textContent = itemNow.question;
+
+    const totalAnswer = [itemNow.correct_answer, ...itemNow.incorrect_answers];
+    //console.log(totalAnswer)
+    totalAnswer.sort(() => Math.random() - 0.5);
+    totalAnswer.forEach((element) => {
+      const answerButton = document.createElement("button");
+      answerButton.classList.add("answer-btn");
+      answerButton.innerText = element;
+      const bottone = document.getElementById("buttons-container");
+      bottone.appendChild(answerButton);
+      // console.log(answerButton)
+    });
+  }
+  nextButton.addEventListener("click", function () {
+    let itemOfArray = arrOfQuestions[index];
+    questsH2.textContent = itemOfArray.question;
+
+    index++;
+  });
 };
-btn.addEventListener("click", countAtClick);
 
-btn.addEventListener("click", changeQuestion);
-window.onload = function () {
-  const div = document.querySelector("#prox-domanda");
-  div.appendChild(p);
-  p.innerText = count;
-};
+structuringQuiz();
