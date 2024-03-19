@@ -114,40 +114,40 @@ const arrOfQuestions = [
   },
 ]
 
-const btn1 = document.createElement("button")
-const btn2 = document.createElement("button")
-const btn3 = document.createElement("button")
-const btn4 = document.createElement("button")
-const btnTrue = document.createElement("button")
-const btnFalse = document.createElement("button")
-const btnSubmit = document.createElement("button")
-
 const questionsContainer = document.querySelector("#quests-container")
 const questsH2 = document.querySelector("#quests")
-// const answer = document.querySelector("#")
+const nextButton = document.querySelector("#next")
+let index = 0
+let answerIndex = 0
+let correctAnswer = []
+let allAnswer = []
 
-let quest = []
-const questionAndAnswer = function () {
-  for (let i = 0; i < arrOfQuestions.length; i++) {
-    quest.push(arrOfQuestions[i].question)
-    //console.log(quest[i])
+//
+
+const structuringQuiz = function () {
+  if (index < arrOfQuestions.length) {
+    let itemNow = arrOfQuestions[index]
+
+    questsH2.textContent = itemNow.question
+
+    const totalAnswer = [itemNow.correct_answer, ...itemNow.incorrect_answers]
+    //console.log(totalAnswer)
+    totalAnswer.sort(() => Math.random() - 0.5)
+    totalAnswer.forEach((element) => {
+      const answerButton = document.createElement("button")
+      answerButton.classList.add("answer-btn")
+      answerButton.innerText = element
+      const bottone = document.getElementById("buttons-container")
+      bottone.appendChild(answerButton)
+      // console.log(answerButton)
+    })
   }
-  questsH2.innerHTML = quest[0]
-  questionsContainer.appendChild(questsH2)
-  const btnGo = document.createElement("button")
-  btnGo.innerText = "next"
-  const divBtnProx = document.querySelector("#prox-domanda")
-  divBtnProx.appendChild(btnGo)
-  btnGo.addEventListener("click", () => {
-    quest[1]
-    console.log(quest)
+  nextButton.addEventListener("click", function () {
+    let itemOfArray = arrOfQuestions[index]
+    questsH2.textContent = itemOfArray.question
+
+    index++
   })
 }
-questionAndAnswer()
-// console.log(quest)
-// questionAndAnswer()
-// const singleQuestion = function () {
-//   for (let i = 0; i < quest.length; i++) {
-//   }
-// }
-// singleQuestion()
+
+structuringQuiz()
