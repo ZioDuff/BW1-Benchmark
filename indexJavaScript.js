@@ -1,23 +1,3 @@
-// PAGINA 1
-
-// chiamati input e bottone , dove il bottone parte disabilitato e viene abilitato al check dell'input
-
-// const checkbox = document.querySelector("#checkbox")
-// const startButton = document.querySelector("#btn")
-// startButton.disabled = true
-// const check = function () {
-//   if (checkbox.checked) {
-//     startButton.disabled = false
-//   } else {
-//     startButton.disabled = true
-//   }
-// }
-// checkbox.addEventListener("change", check)
-// // questo serve per far cambiare pagina
-// startButton.addEventListener("click", () => {
-//   window.location.assign("./indexPage2.html")
-// })
-
 //PAGINA 2
 
 const arrOfQuestions = [
@@ -124,7 +104,7 @@ let answerIndex = 0;
 let correctAnswer = [];
 let allAnswer = [];
 
-//
+// CHANGE ANSWERS
 
 const structuringQuiz = function () {
   if (index < arrOfQuestions.length) {
@@ -135,25 +115,34 @@ const structuringQuiz = function () {
     const totalAnswer = [itemNow.correct_answer, ...itemNow.incorrect_answers];
     //console.log(totalAnswer)
     totalAnswer.sort(() => Math.random() - 0.5);
+    const bottone = document.getElementById("buttons-container");
+    while (bottone.firstChild) {
+      bottone.removeChild(bottone.firstChild);
+    }
     totalAnswer.forEach((element) => {
       const answerButton = document.createElement("button");
       answerButton.classList.add("answer-btn");
       answerButton.innerText = element;
-      const bottone = document.getElementById("buttons-container");
       bottone.appendChild(answerButton);
+
       // console.log(answerButton)
     });
   }
-  nextButton.addEventListener("click", function () {
-    let itemOfArray = arrOfQuestions[index];
-    questsH2.textContent = itemOfArray.question;
-
-    index++;
-  });
 };
-
 structuringQuiz();
 
+nextButton.addEventListener("click", structuringQuiz);
+
+// CAHNGE QUESTIONS
+let changeQuestion = function () {
+  let itemOfArray = arrOfQuestions[index];
+  questsH2.textContent = itemOfArray.question;
+
+  index++;
+};
+nextButton.addEventListener("click", changeQuestion);
+
+// QUESTION COUNTER
 const p = document.createElement("p");
 
 let nQuestion = 1;
@@ -164,10 +153,46 @@ const countAtClick = function () {
   console.log(count);
   p.innerText = count;
 };
+countAtClick();
 nextButton.addEventListener("click", countAtClick);
+
+// TIMER
+let initialTime = 5;
+let time = initialTime;
+let startTimer = function () {
+  document.getElementById("timer").innerText =
+    "Seconds" + " " + time + " " + "remain";
+  time--;
+  if (time < 0) {
+    clearInterval(interval);
+    time = initialTime;
+    countAtClick();
+    changeQuestion();
+    structuringQuiz();
+    interval = setInterval(startTimer, 1000);
+  }
+};
+
+let interval = setInterval(startTimer, 1000);
+nextButton.addEventListener("click", function () {
+  clearInterval(interval);
+  time = initialTime;
+  interval = setInterval(startTimer, 1000);
+});
+// CHANGE PAGE
+
+let questionNumber = arrOfQuestions.length;
+console.log(questionNumber);
+
+nextButton.addEventListener("click", function () {
+  if (questionNumber > 10) {
+    window.location.assign("./indexPage3.html");
+  }
+});
 
 window.onload = function () {
   const div = document.querySelector("#prox-domanda");
   div.appendChild(p);
   p.innerText = count;
 };
+startTimer();
