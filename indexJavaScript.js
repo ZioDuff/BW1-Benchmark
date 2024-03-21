@@ -103,7 +103,7 @@ let index = 0;
 let answerIndex = 0;
 let correctAnswer = [];
 let allAnswer = [];
-
+let point = [];
 // CHANGE ANSWERS
 
 const structuringQuiz = function () {
@@ -111,6 +111,7 @@ const structuringQuiz = function () {
     let itemNow = arrOfQuestions[index];
 
     questsH2.textContent = itemNow.question;
+    index++;
 
     const totalAnswer = [itemNow.correct_answer, ...itemNow.incorrect_answers];
     //console.log(totalAnswer)
@@ -121,31 +122,38 @@ const structuringQuiz = function () {
     }
     totalAnswer.forEach((element) => {
       const answerButton = document.createElement("button");
+
       answerButton.classList.add("answer-btn");
       answerButton.innerText = element;
       bottone.appendChild(answerButton);
-
+      answerButton.addEventListener("click", function () {
+        if (element === itemNow.correct_answer) {
+          point.push(1);
+          answerButton.disabled = true;
+        } else {
+          point.push(0);
+          answerButton.disabled = true;
+        }
+      });
+      console.log(point);
       // console.log(answerButton)
     });
   }
 };
 structuringQuiz();
-
 nextButton.addEventListener("click", structuringQuiz);
 
 // CAHNGE QUESTIONS
-let changeQuestion = function () {
-  let itemOfArray = arrOfQuestions[index];
-  questsH2.textContent = itemOfArray.question;
-
-  index++;
-};
-nextButton.addEventListener("click", changeQuestion);
+// let changeQuestion = function () {
+//   let itemOfArray = arrOfQuestions[index];
+//   questsH2.textContent = itemOfArray.question;
+// };
+// nextButton.addEventListener("click", changeQuestion);
 
 // QUESTION COUNTER
 const p = document.createElement("p");
 
-let nQuestion = 1;
+let nQuestion = 0;
 let count = nQuestion + "/10";
 const countAtClick = function () {
   nQuestion++;
@@ -167,7 +175,7 @@ let startTimer = function () {
     clearInterval(interval);
     time = initialTime;
     countAtClick();
-    changeQuestion();
+    //changeQuestion();
     structuringQuiz();
     interval = setInterval(startTimer, 1000);
   }
@@ -185,7 +193,7 @@ let questionNumber = arrOfQuestions.length;
 console.log(questionNumber);
 
 nextButton.addEventListener("click", function () {
-  if (questionNumber > 10) {
+  if (nQuestion > 10) {
     window.location.assign("./indexPage3.html");
   }
 });

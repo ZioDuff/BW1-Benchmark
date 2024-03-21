@@ -58,5 +58,5 @@ button {
 .star:hover {
     cursor: pointer;
 
-  box-shadow: 2px 2px 71px 47px rgba(0, 255, 255, 0.26);
+  filter: drop-shadow(2px 2px 30px white) ;
 }
