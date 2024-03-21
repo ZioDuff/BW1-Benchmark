@@ -15,5 +15,5 @@ const check = function () {
 checkbox.addEventListener("change", check)
 // questo serve per far cambiare pagina
 startButton.addEventListener("click", () => {
-  window.location.assign("./indexPage2.html")
+  window.location.href = "testPage.html"
 })

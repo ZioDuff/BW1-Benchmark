@@ -147,12 +147,6 @@ const structuringQuiz = function () {
 structuringQuiz()
 nextButton.addEventListener("click", structuringQuiz)
 
-// let changeQuestion = function () {
-//   let itemOfArray = arrOfQuestions[index]
-//   questsH2.textContent = itemOfArray.question
-// }
-// nextButton.addEventListener("click", changeQuestion)
-
 // QUESTION COUNTER
 const p = document.createElement("p")
 
@@ -179,7 +173,7 @@ let startTimer = function () {
     time = initialTime
     countAtClick()
     if (nQuestion > arrOfQuestions.length) {
-      window.location.assign("./indexPage3.html")
+      window.location.href = "resultsPage.html"
     }
     //changeQuestion()
     structuringQuiz()
@@ -200,12 +194,12 @@ console.log(questionNumber)
 
 nextButton.addEventListener("click", function () {
   if (nQuestion > 10) {
-    window.location.assign("./indexPage3.html")
+    window.location.href = "resultsPage.html"
   }
 })
 
 window.onload = function () {
-  const div = document.querySelector("#prox-domanda")
+  const div = document.querySelector("#counter-questions")
   div.appendChild(p)
   p.innerText = count
 }

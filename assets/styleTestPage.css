@@ -69,3 +69,31 @@
   padding-left: 50px;
   padding-top: 50px;
 }
+
+#container-next-btn {
+  text-align: center;
+  margin-block-start: 2em;
+}
+
+#next {
+  width: 10em;
+  height: 3em;
+  font-size: 1em;
+  font-weight: 600;
+  background-color: #00ffff;
+}
+
+#next:hover {
+  cursor: pointer;
+
+  box-shadow: 2px 2px 65px 32px rgba(0, 255, 255, 0.26);
+}
+
+#counter-questions {
+  text-align: center;
+  margin-block-start: 1em;
+}
+
+#counter-questions p {
+  color: #d20094;
+}

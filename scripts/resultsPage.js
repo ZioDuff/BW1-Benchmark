@@ -4,5 +4,5 @@ btn.innerText = "RATE US"
 btnContainer.appendChild(btn)
 
 btn.addEventListener("click", () => {
-  window.location.assign("./indexPage4.html")
+  window.location.href = "rateUs.html"
 })
