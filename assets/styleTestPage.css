@@ -47,17 +47,17 @@
   }
 }
 
-
-
 #clock {
   display: inline-block;
   width: 150px;
   height: 150px;
   text-align: center;
+  border: 1vh solid #00ffff;
+  transition-property: border-color;
+  transition-duration: 10s;
   border-radius: 50%;
   margin-left: 700px;
   margin-bottom: 20px;
-  background: conic-gradient(cyan 80%, #9b9898 0%) border-box;
 }
 #clock {
   border-color: white;
