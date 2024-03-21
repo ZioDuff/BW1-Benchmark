@@ -15,8 +15,22 @@ h2 {
 #title {
   margin-top: 80px;
 }
+.correct {
+  display: inline-block;
+  width: 330px;
+  height: 330px;
+  margin: 50px 0 0 0;
+}
+
 
 .center {
+  display: inline-block;
+  width: 330px;
+  height: 330px;
+  margin: 50px 0 0 0;
+}
+
+.wrong {
   display: inline-block;
   width: 330px;
   height: 330px;

@@ -101,7 +101,7 @@ const questsH2 = document.querySelector("#quests");
 const nextButton = document.querySelector("#next");
 let index = 0;
 let answerIndex = 0;
-let incorrectAnswer = [];
+const incorrectAnswer = [];
 let correctAnswer = [];
 let allAnswer = 10;
 
@@ -203,3 +203,7 @@ window.onload = function () {
   div.appendChild(p);
   p.innerText = count;
 };
+
+localStorage.setItem("correctAnswer", correctAnswer);
+localStorage.setItem("incorrectAnswer", incorrectAnswer);
+// RESULTPAGE
