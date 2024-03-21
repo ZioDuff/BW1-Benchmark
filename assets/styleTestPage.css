@@ -29,10 +29,22 @@
   color: white;
   border: 5px solid #ffffff5e;
 }
-
 .answer-btn:hover {
-background-color: #d20094;
-cursor: pointer;
+  background-color: #d20094;
+  cursor: pointer;
+}
+
+.answerclick-btn {
+  background-color: #d20094;
+}
+
+@keyframes changeColor {
+  form {
+    border: 1vh solid white;
+  }
+  to {
+    border: 1vh solid #00ffff;
+  }
 }
 
 
@@ -51,7 +63,6 @@ cursor: pointer;
   border-color: white;
 }
 
-
 #timer {
   text-align: center;
   width: 30px;
@@ -59,4 +70,30 @@ cursor: pointer;
   padding-top: 50px;
 }
 
-/*mask-image
+#container-next-btn {
+  text-align: center;
+  margin-block-start: 2em;
+}
+
+#next {
+  width: 10em;
+  height: 3em;
+  font-size: 1em;
+  font-weight: 600;
+  background-color: #00ffff;
+}
+
+#next:hover {
+  cursor: pointer;
+
+  box-shadow: 2px 2px 65px 32px rgba(0, 255, 255, 0.26);
+}
+
+#counter-questions {
+  text-align: center;
+  margin-block-start: 1em;
+}
+
+#counter-questions p {
+  color: #d20094;
+}
