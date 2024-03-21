@@ -101,9 +101,9 @@ const questsH2 = document.querySelector("#quests");
 const nextButton = document.querySelector("#next");
 let index = 0;
 let answerIndex = 0;
-const incorrectAnswer = [];
+let incorrectAnswer = [];
 let correctAnswer = [];
-let allAnswer = 10;
+let allAnswer = [];
 
 const structuringQuiz = function () {
   // // CHANGE QUESTIONS
@@ -128,14 +128,17 @@ const structuringQuiz = function () {
       answerButton.addEventListener("click", function () {
         answerButton.classList.add("answerclick-btn");
         if (element === itemNow.correct_answer) {
-          correctAnswer.push(itemNow.correct_answer);
+          correctAnswer.push(element);
+          allAnswer.push(true);
         } else {
-          element === itemNow.incorrect_answers;
-          incorrectAnswer.push(itemNow.incorrect_answers);
+          element !== itemNow.correct_answer;
+          incorrectAnswer.push(element);
+          allAnswer.push(false);
         }
-        console.log(correctAnswer);
-        console.log(incorrectAnswer);
+        console.log("giuste", correctAnswer);
+        console.log("sbagliate", incorrectAnswer);
         console.log(answerButton);
+        console.log("tutte quelle date", allAnswer);
       });
 
       buttonsContainer.appendChild(answerButton);
@@ -174,6 +177,7 @@ let startTimer = function () {
     countAtClick();
     if (nQuestion > arrOfQuestions.length) {
       window.location.href = "resultsPage.html";
+      localStorage.setItem("allAnswer", allAnswer);
     }
     //changeQuestion()
     structuringQuiz();
@@ -195,6 +199,7 @@ console.log(questionNumber);
 nextButton.addEventListener("click", function () {
   if (nQuestion > 10) {
     window.location.href = "resultsPage.html";
+    localStorage.setItem("allAnswer", allAnswer);
   }
 });
 

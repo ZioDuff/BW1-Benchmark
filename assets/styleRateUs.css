@@ -1,62 +1,72 @@
-h1 { 
-    font-size: 60px;
-    font-weight: 700;
-    text-align: center;
+h1 {
+  font-size: 60px;
+  font-weight: 700;
+  text-align: center;
 }
-h2, p {
-    font-size: 30px;
-    text-align: center;
+h2,
+p {
+  font-size: 30px;
+  text-align: center;
 }
 #title {
-    margin-top: 80px;
-    
+  margin-top: 80px;
+  line-height: 1.5;
 }
 #stars {
-    margin-top: 80px;
-    text-align: center;
+  margin-top: 80px;
+  text-align: center;
 }
 
 #comment {
-    text-align: center;
-    margin-top: 120px;
+  text-align: center;
+  margin-top: 120px;
 }
 
 #feedback {
-    width: auto;
-    margin-top: 35px;
-    border-bottom: 2px solid #d20094;
+  width: auto;
+  margin-top: 35px;
+  border-bottom: 2px solid #d20094;
 }
 
 #input {
-    width:1024px;
-    height: 30px;
-    font-size: 16px;
-    background-color: transparent;
-    border: none;
-    
-
+  width: 1024px;
+  height: 30px;
+  font-size: 16px;
+  background-color: transparent;
+  border: none;
 }
 
 #btnContainer {
-    margin-top: 50px;
-    text-align: center;
+  margin-top: 50px;
+  text-align: center;
 }
 
 button {
-    width: 220px;
-    height: 70px;
-    background-color: #00ffff;
-    border: none;
-    font-weight: 700;
-    font-size: 25px;
-    box-shadow: 0px 0px 149px -16px #00ffff;
-
+  width: 220px;
+  height: 70px;
+  background-color: #00ffff;
+  border: none;
+  font-weight: 700;
+  font-size: 25px;
+  box-shadow: 0px 0px 149px -16px #00ffff;
 }
+
+button:hover {
+  cursor: pointer;
+}
+
 .star {
-    color: black;
+  color: black;
 }
 .star:hover {
-    cursor: pointer;
+  cursor: pointer;
 
-  filter: drop-shadow(2px 2px 30px white) ;
+  box-shadow: 2px 2px 71px 47px rgba(0, 255, 255, 0.26);
+}
+
+#feedback input {
+  width: 100%;
+
+  margin-block-end: 1em;
+  color: white;
 }
