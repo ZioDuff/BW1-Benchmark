@@ -29,10 +29,22 @@
   color: white;
   border: 5px solid #ffffff5e;
 }
+.answer-btn:hover {
+  background-color: #d20094;
+  cursor: pointer;
+}
+
+.answerclick-btn {
+  background-color: #d20094;
+}
 
 @keyframes changeColor {
-  form {border: 1vh solid white;}
-  to {border: 1vh solid #00ffff;}
+  form {
+    border: 1vh solid white;
+  }
+  to {
+    border: 1vh solid #00ffff;
+  }
 }
 
 #clock {
@@ -50,7 +62,6 @@
 #clock {
   border-color: white;
 }
-
 
 #timer {
   text-align: center;
