@@ -38,36 +38,39 @@
   background-color: #d20094;
 }
 
-@keyframes changeColor {
-  form {
-    border: 1vh solid white;
-  }
-  to {
-    border: 1vh solid #00ffff;
-  }
-}
+
 
 #clock {
   display: inline-block;
   width: 150px;
   height: 150px;
   text-align: center;
-  border: 1vh solid #00ffff;
-  transition-property: border-color;
-  transition-duration: 10s;
+  z-index: 1;
   border-radius: 50%;
+  margin-left: 25px;
+  position: absolute;
   margin-left: 700px;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
+  
 }
-#clock {
-  border-color: white;
+#clock-gradient {
+  display: inline-block;
+  width: 160px;
+  height: 160px;
+  mask-image: radial-gradient(circle at center, transparent 60px, white 61px);
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 0;
+  margin-left: 700px;
 }
 
 #timer {
   text-align: center;
   width: 30px;
-  padding-left: 50px;
-  padding-top: 50px;
+  padding-left: 40px;
+  padding-top: 53px;
+  font-size: 20px;
 }
 
 #container-next-btn {
