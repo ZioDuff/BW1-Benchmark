@@ -1,5 +1,5 @@
 //pagina 4 feedback
-
+//abbiamo messo le svg sull'html perche si rompevano :(
 const stars = document.querySelectorAll("#stars img")
 const starsArray = Array.from(stars)
 console.log(starsArray)
