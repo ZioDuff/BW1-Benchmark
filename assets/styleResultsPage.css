@@ -1,6 +1,6 @@
 header {
   text-align: center;
-} 
+}
 
 h1 {
   font-size: 60px;
@@ -17,6 +17,10 @@ h2 {
   margin-left: 10px;
   margin-top: 80px;
   text-align: center;
+}
+
+main {
+  margin-left: 9em;
 }
 
 .correct {
@@ -38,9 +42,9 @@ h2 {
 
 .wrong {
   display: inline-block;
- position: relative;
-left: 370px;
- width:280px;
+  position: relative;
+  left: 370px;
+  width: 280px;
   height: 50px;
   margin: 50px 0 0 0;
   padding-bottom: 15px;
@@ -48,7 +52,7 @@ left: 370px;
 .center {
   margin-left: 30px;
   display: inline-block;
-  
+
   border-radius: 50%;
   width: 316px;
   height: 316px;
@@ -57,7 +61,11 @@ left: 370px;
 }
 #gradient-result {
   margin-left: 30px;
-  mask-image: radial-gradient(circle at center, transparent 120px, #d20094 61px);
+  mask-image: radial-gradient(
+    circle at center,
+    transparent 120px,
+    #d20094 61px
+  );
   display: inline-block;
   border-radius: 50%;
   width: 316px;
@@ -67,13 +75,11 @@ left: 370px;
 }
 
 #btn-Container {
-  margin-top: 50px;
+  margin-top: 7em;
   text-align: center;
 }
 
 button {
-  margin-top:150px;
-  
   text-align: center;
   width: 220px;
   height: 70px;
