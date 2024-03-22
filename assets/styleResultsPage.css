@@ -1,55 +1,74 @@
-main {
+/* main {
   text-align: center;
-}
+} */
 
 h1 {
   font-size: 60px;
   font-weight: 700;
   text-align: center;
 }
-h3 {
+h2 {
   font-size: 30px;
   text-align: center;
+  margin-bottom: 40px;
 }
 
 #title {
+  margin-left: 10px;
   margin-top: 80px;
+  text-align: center;
 }
 .correct {
+  text-align: center;
   display: inline-block;
   width: 330px;
-  height: 330px;
-  margin: 50px 0 0 0;
+  height: 60px;
+  margin: 50px 0px 0 0;
+  padding-top: 40px;
 }
 
 
-.center {
-  display: inline-block;
-  width: 330px;
-  height: 330px;
-  margin: 50px 0 0 0;
-}
+
+
 
 .wrong {
   display: inline-block;
-  width: 330px;
-  height: 330px;
+ position: relative;
+left: 370px;
+ width:280px;
+  height: 50px;
   margin: 50px 0 0 0;
+  padding-bottom: 15px;
 }
-
-#result {
-  border: 1vh solid white;
+.center {
+  margin-left: 30px;
+  display: inline-block;
+  
   border-radius: 50%;
   width: 316px;
   height: 316px;
+  position: absolute;
+  z-index: 1;
+}
+#gradient-result {
+  margin-left: 30px;
+  mask-image: radial-gradient(circle at center, transparent 120px, #d20094 61px);
+  display: inline-block;
+  border-radius: 50%;
+  width: 316px;
+  height: 316px;
+  position: absolute;
+  z-index: 1;
 }
 
-#btnContainer {
-  margin-top: 50px;
+#btn-container {
   text-align: center;
 }
 
 button {
+  margin-top:150px;
+  
+  text-align: center;
   width: 220px;
   height: 70px;
   border: 3px solid white;
@@ -57,9 +76,14 @@ button {
   color: white;
   font-weight: 700;
   font-size: 25px;
-  box-shadow: 0px 0px 149px -16px #00ffff;
 }
 
 button:hover {
   cursor: pointer;
+  box-shadow: 0px 0px 149px -16px #00ffff;
+}
+
+p {
+  padding-left: 110px;
+  padding-top: 150px;
 }
