@@ -125,8 +125,10 @@ const structuringQuiz = function () {
       const answerButton = document.createElement("button");
       answerButton.classList.add("answer-btn");
       answerButton.innerText = element;
+      nextButton.disabled = true;
       answerButton.addEventListener("click", function () {
         answerButton.classList.add("answerclick-btn");
+        nextButton.disabled = false;
         if (element === itemNow.correct_answer) {
           correctAnswer.push(element);
           allAnswer.push(true);
