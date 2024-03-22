@@ -38,29 +38,24 @@
   background-color: #d20094;
 }
 
-@keyframes changeColor {
-  form {
-    border: 1vh solid white;
-  }
-  to {
-    border: 1vh solid #00ffff;
-  }
-}
-
 #clock {
   display: inline-block;
   width: 150px;
   height: 150px;
   text-align: center;
-  border: 1vh solid #00ffff;
-  transition-property: border-color;
-  transition-duration: 10s;
+  border: 1vh solid white;
+
   border-radius: 50%;
   margin-left: 700px;
   margin-bottom: 20px;
 }
-#clock {
-  border-color: white;
+
+#clock-gradient {
+  width: 155px;
+  height: 155px;
+  mask-image: radial-gradient(circle at center, transparent 60px, white 61px);
+  background-color: aquamarine;
+  border-radius: 50%;
 }
 
 #timer {
