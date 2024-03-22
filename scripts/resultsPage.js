@@ -29,10 +29,11 @@ console.log(indiceNegativo)
 
 //stampa in mezzo al cerchio
 const middelDiv = document.querySelector("#result")
-const paragraph = document.createElement("p")
+const paragraph = document.querySelector("p")
 middelDiv.appendChild(paragraph)
 if (indicePositivo > indiceNegativo) {
-  paragraph.innerText = "congratulazioni"
+  paragraph.innerText =
+    "congratulazioni ti manderemo il certificato di ammissione al corso tramite email"
 } else {
   paragraph.innerText = "sei na pippa"
 }
