@@ -19,6 +19,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   padding: 4em 6em;
+  min-height: 100vh;
 }
 
 #epicode_logo {
