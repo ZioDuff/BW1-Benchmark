@@ -94,121 +94,121 @@ const arrOfQuestions = [
     correct_answer: "Java",
     incorrect_answers: ["Python", "C", "Jakarta"],
   },
-];
+]
 
-const questionsContainer = document.querySelector("#quests-container");
-const questsH2 = document.querySelector("#quests");
-const nextButton = document.querySelector("#next");
-let index = 0;
-let answerIndex = 0;
-let incorrectAnswer = [];
-let correctAnswer = [];
-let allAnswer = [];
+const questionsContainer = document.querySelector("#quests-container")
+const questsH2 = document.querySelector("#quests")
+const nextButton = document.querySelector("#next")
+let index = 0
+let answerIndex = 0
+let incorrectAnswer = []
+let correctAnswer = []
+let allAnswer = []
 
 const structuringQuiz = function () {
   // // CHANGE QUESTIONS
   if (index < arrOfQuestions.length) {
-    let itemNow = arrOfQuestions[index];
+    let itemNow = arrOfQuestions[index]
 
-    questsH2.textContent = itemNow.question;
-    index++;
+    questsH2.textContent = itemNow.question
+    index++
 
     // CHANGE ANSWERS
-    const totalAnswer = [itemNow.correct_answer, ...itemNow.incorrect_answers];
+    const totalAnswer = [itemNow.correct_answer, ...itemNow.incorrect_answers]
     //console.log(totalAnswer)
-    totalAnswer.sort(() => Math.random() - 0.5);
-    const buttonsContainer = document.getElementById("buttons-container");
+    totalAnswer.sort(() => Math.random() - 0.5)
+    const buttonsContainer = document.getElementById("buttons-container")
     while (buttonsContainer.firstChild) {
-      buttonsContainer.removeChild(buttonsContainer.firstChild);
+      buttonsContainer.removeChild(buttonsContainer.firstChild)
     }
     totalAnswer.forEach((element) => {
-      const answerButton = document.createElement("button");
-      answerButton.classList.add("answer-btn");
-      answerButton.innerText = element;
+      const answerButton = document.createElement("button")
+      answerButton.classList.add("answer-btn")
+      answerButton.innerText = element
       answerButton.addEventListener("click", function () {
-        answerButton.classList.add("answerclick-btn");
+        answerButton.classList.add("answerclick-btn")
         if (element === itemNow.correct_answer) {
-          correctAnswer.push(element);
-          allAnswer.push(true);
+          correctAnswer.push(element)
+          allAnswer.push(true)
         } else {
-          element !== itemNow.correct_answer;
-          incorrectAnswer.push(element);
-          allAnswer.push(false);
+          element !== itemNow.correct_answer
+          incorrectAnswer.push(element)
+          allAnswer.push(false)
         }
-        console.log("giuste", correctAnswer);
-        console.log("sbagliate", incorrectAnswer);
-        console.log(answerButton);
-        console.log("tutte quelle date", allAnswer);
-      });
+        console.log("giuste", correctAnswer)
+        console.log("sbagliate", incorrectAnswer)
+        console.log(answerButton)
+        console.log("tutte quelle date", allAnswer)
+      })
 
-      buttonsContainer.appendChild(answerButton);
+      buttonsContainer.appendChild(answerButton)
 
       // console.log(answerButton)
-    });
+    })
   }
-};
-structuringQuiz();
-nextButton.addEventListener("click", structuringQuiz);
+}
+structuringQuiz()
+nextButton.addEventListener("click", structuringQuiz)
 
 // QUESTION COUNTER
-const p = document.createElement("p");
+const p = document.createElement("p")
 
-let nQuestion = 0;
-let count = nQuestion + "/10";
+let nQuestion = 0
+let count = nQuestion + "/10"
 const countAtClick = function () {
-  nQuestion++;
-  count = nQuestion + "/10";
-  console.log(count);
-  p.innerText = count;
-};
-countAtClick();
-nextButton.addEventListener("click", countAtClick);
+  nQuestion++
+  count = nQuestion + "/10"
+  console.log(count)
+  p.innerText = count
+}
+countAtClick()
+nextButton.addEventListener("click", countAtClick)
 
 // TIMER
-let initialTime = 1000;
-let time = initialTime;
+let initialTime = 60
+let time = initialTime
 let startTimer = function () {
   document.getElementById("timer").innerText =
-    "Seconds" + " " + time + " " + "remain";
-  time--;
+    "Seconds" + " " + time + " " + "remain"
+  time--
   if (time < 0) {
-    clearInterval(interval);
-    time = initialTime;
-    countAtClick();
+    clearInterval(interval)
+    time = initialTime
+    countAtClick()
     if (nQuestion > arrOfQuestions.length) {
-      window.location.href = "resultsPage.html";
-      localStorage.setItem("allAnswer", allAnswer);
+      window.location.href = "resultsPage.html"
+      localStorage.setItem("allAnswer", allAnswer)
     }
     //changeQuestion()
-    structuringQuiz();
-    interval = setInterval(startTimer, 1000);
+    structuringQuiz()
+    interval = setInterval(startTimer, 1000)
   }
-};
+}
 
-let interval = setInterval(startTimer, 1000);
+let interval = setInterval(startTimer, 1000)
 nextButton.addEventListener("click", function () {
-  clearInterval(interval);
-  time = initialTime;
-  interval = setInterval(startTimer, 1000);
-});
+  clearInterval(interval)
+  time = initialTime
+  interval = setInterval(startTimer, 1000)
+})
 // CHANGE PAGE
 
-let questionNumber = arrOfQuestions.length;
-console.log(questionNumber);
+let questionNumber = arrOfQuestions.length
+console.log(questionNumber)
 
 nextButton.addEventListener("click", function () {
   if (nQuestion > 10) {
-    window.location.href = "resultsPage.html";
-    localStorage.setItem("allAnswer", allAnswer);
+    window.location.href = "resultsPage.html"
+    localStorage.setItem("allAnswer", allAnswer)
   }
-});
+})
 
 window.onload = function () {
-  const div = document.querySelector("#counter-questions");
-  div.appendChild(p);
-  p.innerText = count;
-};
+  const div = document.querySelector("#counter-questions")
+  div.appendChild(p)
+  p.innerText = count
+}
 
-localStorage.setItem("correctAnswer", correctAnswer);
-localStorage.setItem("incorrectAnswer", incorrectAnswer);
+localStorage.setItem("correctAnswer", correctAnswer)
+localStorage.setItem("incorrectAnswer", incorrectAnswer)
 // RESULTPAGE
